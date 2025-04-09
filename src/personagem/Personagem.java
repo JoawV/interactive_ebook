@@ -28,8 +28,12 @@ public class Personagem {
         this.sorte = sorte;
     }
 
-    public void equiparItem(Equipamento equipamento) {
-        this.equipamentoNovo = equipamento;
+    public void adicionarMagia(String magias) {
+        this.magia.add(magias);
+    }
+
+    public void adicionarEquipamentoPrincipal(Equipamento equipamento) {
+        equipamentoEquipado.add(equipamento);
     }
 
     public void adicionarEquipamentoExtra(Equipamento equipamento) {
@@ -37,16 +41,24 @@ public class Personagem {
     }
 
     public void exibirStatus() {
-        System.out.println("\n------- STATUS DO PERSONAGEM -------");
+        System.out.println("------- STATUS DO PERSONAGEM -------");
         System.out.println("HABILIDADE: " + habilidade);
         System.out.println("ENERGIA: " + energia);
         System.out.println("SORTE: " + sorte);
-        System.out.println("Equipamento principal: " + (equipamentoNovo != null ? equipamentoNovo : "Nenhum"));
-        System.out.println("Equipamentos Extras: " + (equipamentosExtras.isEmpty() ? "Nenhum" : ""));
-        for (Equipamento e : equipamentosExtras) {
+        System.out.println("\nMÁGIA: " + (magia.isEmpty() ? "Nenhum" : ""));
+        for (String m : magia) {
+            System.out.println("- " + m);
+        }
+        System.out.println("");
+        System.out.println("Itens Equipados: " + (equipamentoEquipado.isEmpty() ? "Nenhum" : ""));
+        for (Equipamento e : equipamentoEquipado) {
             System.out.println("- " + e);
         }
-//        System.out.println("-----------------------------------");
+        System.out.println("");
+        System.out.println("Itens Extras: " + (equipamentosExtras.isEmpty() ? "Nenhum" : ""));
+        for (Equipamento x : equipamentosExtras) {
+            System.out.println("- " + x);
+        }
         System.out.println("");
     }
 
@@ -54,12 +66,15 @@ public class Personagem {
         this.habilidade = habilidade;
         this.energia = energia;
         this.sorte = sorte;
+        this.magia = new ArrayList<>();
+        this.equipamentoEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
     }
 
     private int habilidade;
     private int energia;
     private int sorte;
-    private Equipamento equipamentoNovo;
+    private ArrayList<String> magia;
+    private List<Equipamento> equipamentoEquipado;
     private List<Equipamento> equipamentosExtras;
 }
