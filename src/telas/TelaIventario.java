@@ -1,9 +1,8 @@
 package telas;
 
-import java.io.IOException;
+import java.util.Random;
 import personagem.Equipamento;
 import personagem.Personagem;
-
 import java.util.Scanner;
 
 public class TelaIventario {
@@ -11,7 +10,7 @@ public class TelaIventario {
     private Equipamento equipamento;
     private TelaPadrao telaPadrao;
     private int tesouro = 0;
-    
+
     Scanner sc = new Scanner(System.in);
 
     public Personagem getPersonagem() {
@@ -24,91 +23,113 @@ public class TelaIventario {
         int energia = 12;
         int sorte = 6;
 
-        System.out.println("------- CONFIGURAÇÃO DO PERSONAGEM -------");
-        System.out.println("");
+        int pontosDeHabilidade = 0;
+        int pontosDeEnergia = 0;
+        int pontosDeSorte = 0;
+
+        System.out.println("------- CONFIGURAÇÃO DO PERSONAGEM -------\n");
         System.out.println("Você tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
-        System.out.print("Defina a quantidade de pontos de HABILIDADE (6-12): ");
-        int pontosDeHabilidade = sc.nextInt();
-        if (pontosDeHabilidade > 6) {
-            System.out.println("Valor inválido!");
-            System.out.print("Defina a quantidade de pontos de HABILIDADE (6-12): ");
+        while (true) {
+            System.out.print("Defina a quantidade de pontos de HABILIDADE adicionais (6-12): ");
             pontosDeHabilidade = sc.nextInt();
+            if (pontosDeHabilidade >= 0 && pontosDeHabilidade <= 6 && pontosDeHabilidade <= pontosDisponiveis) {
+                break;
+            }
+            System.out.println("Valor inválido!.");
         }
         habilidade += pontosDeHabilidade;
         pontosDisponiveis -= pontosDeHabilidade;
 
-        System.out.println("");
-        System.out.println("Você tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
-        System.out.print("Defina a quantidade de pontos de ENERGIA (Min 12 - Max 24): ");
-        int pontosDeEnergia = sc.nextInt();
-        if (pontosDeEnergia > 12) {
-            System.out.println("Valor inválido!");
-            System.out.print("Defina a quantidade de pontos de ENERGIA (Min 12 - Max 24): ");
+        while (true) {
+            System.out.println("\nVocê tem " + pontosDisponiveis + " pontos para distribuir!");
+            System.out.print("Defina a quantidade de pontos de ENERGIA adicionais (12-24): ");
             pontosDeEnergia = sc.nextInt();
+            if (pontosDeEnergia >= 0 && pontosDeEnergia <= 12 && pontosDeEnergia <= pontosDisponiveis) {
+                break;
+            }
+            System.out.println("Valor inválido!");
         }
         energia += pontosDeEnergia;
         pontosDisponiveis -= pontosDeEnergia;
 
-        System.out.println("");
-        System.out.println("Você tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
-        System.out.print("Defina a quantidade de pontos de SORTE (6-12): ");
-        int pontosDeSorte = sc.nextInt();
-        if (pontosDeSorte > 6) {
-            System.out.println("Valor inválido!");
-            System.out.print("Defina a quantidade de pontos de SORTE (6-12): ");
+        while (true) {
+            System.out.println("\nVocê tem " + pontosDisponiveis + " pontos para distribuir!");
+            System.out.print("Defina a quantidade de pontos de SORTE adicionais (6-12): ");
             pontosDeSorte = sc.nextInt();
+            if (pontosDeSorte >= 0 && pontosDeSorte <= 6 && pontosDeSorte <= pontosDisponiveis) {
+                break;
+            }
+            System.out.println("Valor inválido!");
         }
         sorte += pontosDeSorte;
         pontosDisponiveis -= pontosDeSorte;
         sc.nextLine();
 
-        personagem = new Personagem(habilidade, energia, sorte);
         System.out.println("\nPersonagem configurado com sucesso!");
 
-        System.out.print("\nDeseja adicionar uma magia inicial ao seu personagem? (s/n): ");
-        String respostaMagia = sc.nextLine();
+        System.out.println("\nEscolha sua Classe:");
+        System.out.println("Guerreiro - Focado em Ataque (Recebe um equipamento extra)");
+        System.out.println("Mago - Focado em Magia (Recebe uma magia gratuita)");
+        System.out.print("Escreva qual classe você deseja: ");
+        String classeEscolhida = sc.nextLine();
 
-        if (!respostaMagia.isEmpty() && respostaMagia.charAt(0) == 's') {
-            System.out.print("Insira a magia: ");
-            String magias = sc.nextLine();
-            personagem.adicionarMagia(magias);
-            System.out.println("Magia adicionada com sucesso!");
+        if (classeEscolhida.equalsIgnoreCase("Mago")) {
+            System.out.println("\nVocê escolheu a classe Mago e recebeu uma magia adicional");
+            System.out.println("1* Magia de Fogo");
+            personagem.adicionarMagia("Magia de Fogo");
         }
 
+        personagem = new Personagem(habilidade, energia, sorte, classeEscolhida);
 
         //TESTE ADICIONAR EQUIPAMENTOS
-        System.out.println("\nInsira seu EQUIPAMENTO base!");
-        char adicionarMaisEquipamento = 's';
-        char equiparItem = 's';
-        while (adicionarMaisEquipamento != 'n') {
-            System.out.print("Nome do equipamento: ");
-            String nome = sc.nextLine();
+        Random random = new Random();
 
-            System.out.print("Digite o tipo do equipamento (Ataque/Defesa): ");
-            String tipo = sc.nextLine();
+        System.out.println("\nVocê tem direito a um equipamento gratuito!");
+        System.out.print("Digite o tipo do equipamento (Ataque/Defesa): ");
+        String tipo = sc.nextLine();
 
-            System.out.print("Digite o bônus do equipamento: ");
-            double bonus = sc.nextDouble();
-            sc.nextLine();
+        double bonus = 1 + random.nextInt(6);
 
-            equipamento = new Equipamento(nome, tipo, bonus);
-            System.out.print("Deseja equipar este item?");
-            String equiparItemResposta = sc.nextLine();
-            if (!equiparItemResposta.isEmpty()) {
-                equiparItem = equiparItemResposta.charAt(0);
-                if (equiparItem == 's') {
-                    personagem.adicionarEquipamentoPrincipal(equipamento);
-                } else personagem.adicionarEquipamentoExtra(equipamento);
-            }
+        String nome = "";
+        String extra = "";
+        String extra2 = "";
 
-            System.out.print("Deseja adicionar mais equipamentos?(s/n): ");
-            String resposta = sc.nextLine();
-            if (!resposta.isEmpty()) {
-                adicionarMaisEquipamento = resposta.charAt(0);
-            }
-            System.out.println("Equipamento adicionado ao inventário!");
-            System.out.println("");
+        if (tipo.equalsIgnoreCase("Ataque")) {
+            nome = "Espada";
+            extra = "Armadura";
+            extra2 = "Defesa";
+        } else if (tipo.equalsIgnoreCase("Defesa")) {
+            nome = "Armadura";
+            extra = "Espada";
+            extra2 = "Ataque";
         }
+
+        equipamento = new Equipamento(nome, tipo, bonus);
+        System.out.println("Parabéns! Você adquiriu uma '" + nome + "'");
+
+        System.out.print("Deseja equipar este item? (s/n): ");
+        String equiparItemResposta = sc.nextLine();
+        if (!equiparItemResposta.isEmpty()) {
+            char equiparItem = equiparItemResposta.charAt(0);
+            if (equiparItem == 's') {
+                personagem.adicionarEquipamentoPrincipal(equipamento);
+            } else {
+                personagem.adicionarEquipamentoExtra(equipamento);
+            }
+        }
+
+        if(classeEscolhida.equalsIgnoreCase("Guerreiro")) {
+            System.out.println("Por ser da Classe Guerreiro você recebeu um equipamento extra!");
+            System.out.println("O Equipamento foi enviado para a Mochila");
+            bonus = 1 + random.nextInt(6);
+            equipamento = new Equipamento(extra, extra2, bonus);
+            personagem.adicionarEquipamentoExtra(equipamento);
+        }
+
         personagem.exibirStatus();
+    }
+
+    private static String getMagias() {
+        return "magias";
     }
 }

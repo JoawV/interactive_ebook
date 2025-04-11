@@ -40,8 +40,17 @@ public class Personagem {
         equipamentosExtras.add(equipamento);
     }
 
+    public String getClasse() {
+        return classe;
+    }
+
+    public void setClasse(String classe) {
+        this.classe = classe;
+    }
+
     public void exibirStatus() {
         System.out.println("------- STATUS DO PERSONAGEM -------");
+        System.out.println("Classe: " + classe);
         System.out.println("HABILIDADE: " + habilidade);
         System.out.println("ENERGIA: " + energia);
         System.out.println("SORTE: " + sorte);
@@ -55,20 +64,21 @@ public class Personagem {
             System.out.println("- " + e);
         }
         System.out.println("");
-        System.out.println("Itens Extras: " + (equipamentosExtras.isEmpty() ? "Nenhum" : ""));
+        System.out.println("Mochila: " + (equipamentosExtras.isEmpty() ? "Nenhum" : ""));
         for (Equipamento x : equipamentosExtras) {
             System.out.println("- " + x);
         }
         System.out.println("");
     }
 
-    public Personagem(int habilidade, int energia, int sorte) {
+    public Personagem(int habilidade, int energia, int sorte, String classe) {
         this.habilidade = habilidade;
         this.energia = energia;
         this.sorte = sorte;
         this.magia = new ArrayList<>();
         this.equipamentoEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
+        this.classe = classe;
     }
 
     private int habilidade;
@@ -77,4 +87,5 @@ public class Personagem {
     private ArrayList<String> magia;
     private List<Equipamento> equipamentoEquipado;
     private List<Equipamento> equipamentosExtras;
+    private String classe;
 }
