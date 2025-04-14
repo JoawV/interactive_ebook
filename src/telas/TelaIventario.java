@@ -6,16 +6,12 @@ import personagem.Personagem;
 import java.util.Scanner;
 
 public class TelaIventario {
+    TelaPadrao telaPadrao = new TelaPadrao();
     private Personagem personagem;
     private Equipamento equipamento;
-    private TelaPadrao telaPadrao;
     private int tesouro = 0;
 
     Scanner sc = new Scanner(System.in);
-
-    public Personagem getPersonagem() {
-        return personagem;
-    }
 
     public void configurarPersonagem() {
         int pontosDisponiveis = 12;
@@ -130,8 +126,12 @@ public class TelaIventario {
             personagem.adicionarEquipamentoExtra(equipamento);
         }
         personagem.exibirStatus();
+        telaPadrao.cenaIntrodução();
     }
 
+    public Personagem getPersonagem() {
+        return personagem;
+    }
     private static String getMagias() {
         return "magias";
     }
