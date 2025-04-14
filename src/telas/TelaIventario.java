@@ -68,18 +68,20 @@ public class TelaIventario {
         System.out.println("\nPersonagem configurado com sucesso!");
 
         System.out.println("\nEscolha sua Classe:");
+        System.out.println("");
         System.out.println("Guerreiro - Focado em Ataque (Recebe um equipamento extra)");
         System.out.println("Mago - Focado em Magia (Recebe uma magia gratuita)");
+        System.out.println("");
         System.out.print("Escreva qual classe você deseja: ");
         String classeEscolhida = sc.nextLine();
+
+        personagem = new Personagem(habilidade, energia, sorte, classeEscolhida);
 
         if (classeEscolhida.equalsIgnoreCase("Mago")) {
             System.out.println("\nVocê escolheu a classe Mago e recebeu uma magia adicional");
             System.out.println("1* Magia de Fogo");
             personagem.adicionarMagia("Magia de Fogo");
         }
-
-        personagem = new Personagem(habilidade, energia, sorte, classeEscolhida);
 
         //TESTE ADICIONAR EQUIPAMENTOS
         Random random = new Random();
@@ -105,7 +107,7 @@ public class TelaIventario {
         }
 
         equipamento = new Equipamento(nome, tipo, bonus);
-        System.out.println("Parabéns! Você adquiriu uma '" + nome + "'");
+        System.out.println("\nParabéns! Você adquiriu uma '" + nome + "'");
 
         System.out.print("Deseja equipar este item? (s/n): ");
         String equiparItemResposta = sc.nextLine();
@@ -113,19 +115,20 @@ public class TelaIventario {
             char equiparItem = equiparItemResposta.charAt(0);
             if (equiparItem == 's') {
                 personagem.adicionarEquipamentoPrincipal(equipamento);
+                System.out.println("Item equipado!\n");
             } else {
                 personagem.adicionarEquipamentoExtra(equipamento);
+                System.out.println("Item transferido para Mochila!\n");
             }
         }
 
         if(classeEscolhida.equalsIgnoreCase("Guerreiro")) {
             System.out.println("Por ser da Classe Guerreiro você recebeu um equipamento extra!");
-            System.out.println("O Equipamento foi enviado para a Mochila");
+            System.out.println("O Equipamento foi enviado para a Mochila!\n");
             bonus = 1 + random.nextInt(6);
             equipamento = new Equipamento(extra, extra2, bonus);
             personagem.adicionarEquipamentoExtra(equipamento);
         }
-
         personagem.exibirStatus();
     }
 
