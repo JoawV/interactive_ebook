@@ -2,7 +2,7 @@ package telas;
 
 import java.util.Random;
 
-import personagem.Arcano;
+import mundo.Arcano;
 import personagem.Item;
 import personagem.Personagem;
 import java.util.Scanner;
@@ -29,6 +29,8 @@ public class TelaIventario {
         int pontosDeSorte = 0;
 
         System.out.println("------- CONFIGURAÇÃO DO PERSONAGEM -------\n");
+        System.out.println("Insira seu nome: ");
+        String nomePersonagem = sc.nextLine();
         System.out.println("Você tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
         while (true) {
             System.out.print("Defina a quantidade de pontos de HABILIDADE adicionais (6-12): ");
@@ -74,7 +76,7 @@ public class TelaIventario {
         System.out.print("Escreva qual classe você deseja: ");
         String classeEscolhida = sc.nextLine();
 
-        personagem = new Personagem(habilidade, energia, sorte, classeEscolhida);
+        personagem = new Personagem(nomePersonagem, habilidade, energia, sorte, 0, classeEscolhida);
 
         if (classeEscolhida.equalsIgnoreCase("Mago")) {
             System.out.println("\nVocê escolheu a classe Mago e recebeu uma magia adicional");
@@ -135,7 +137,7 @@ public class TelaIventario {
         }
         personagem.exibirStatus();
         telaPadrao.setPersonagem(personagem);
-        telaPadrao.cenaIntrodução();
+        telaPadrao.lerCena(1);
     }
 
     public Personagem getPersonagem() {

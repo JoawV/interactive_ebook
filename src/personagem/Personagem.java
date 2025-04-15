@@ -1,9 +1,24 @@
 package personagem;
 
+import mundo.Arcano;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personagem {
+public class Personagem implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public int getHabilidade() {
         return habilidade;
     }
@@ -28,6 +43,14 @@ public class Personagem {
         this.sorte = sorte;
     }
 
+    public int getTesouro() {
+        return tesouro;
+    }
+
+    public void setTesouro(int tesouro) {
+        this.tesouro = tesouro;
+    }
+
     public String getClasse() {
         return classe;
     }
@@ -50,6 +73,7 @@ public class Personagem {
 
     public void exibirStatus() {
         System.out.println("------- STATUS DO PERSONAGEM -------");
+        System.out.println("Nome: " + nome);
         System.out.println("Classe: " + classe);
         System.out.println("\nHABILIDADE: " + habilidade);
         System.out.println("ENERGIA: " + energia);
@@ -71,19 +95,23 @@ public class Personagem {
         System.out.println("");
     }
 
-    public Personagem(int habilidade, int energia, int sorte, String classe) {
+    public Personagem(String nome, int habilidade, int energia, int sorte, int tesouro, String classe) {
+        this.nome = nome;
         this.habilidade = habilidade;
         this.energia = energia;
         this.sorte = sorte;
+        this.tesouro = tesouro;
         this.classe = classe;
         this.magiaEquipadas = new ArrayList<>();
         this.itemEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
     }
 
+    private String nome;
     private int habilidade;
     private int energia;
     private int sorte;
+    private int tesouro;
     private String classe;
     private List<Arcano> magiaEquipadas;
     private List<Item> itemEquipado;
