@@ -1,12 +1,16 @@
 package telas;
 
-import personagem.Personagem;
-
 import java.util.Scanner;
+
+import personagem.Personagem;
 
 public class TelaPadrao {
     Scanner sc = new Scanner(System.in);
     private Personagem personagem;
+    public void setPersonagem(Personagem personagem) {
+        this.personagem = personagem;
+    }
+
     //TESTE DE CENA
     public void cenaIntrodução() {
         System.out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus, lorem a dignissim\n" +

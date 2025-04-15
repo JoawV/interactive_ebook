@@ -36,16 +36,16 @@ public class Personagem {
         this.classe = classe;
     }
 
-    public void adicionarMagia(String magias) {
-        this.magia.add(magias);
+    public void adicionarMagia(Arcano magias) {
+        magiaEquipadas.add(magias);
     }
 
-    public void adicionarEquipamentoPrincipal(Equipamento equipamento) {
-        equipamentoEquipado.add(equipamento);
+    public void adicionarEquipamentoPrincipal(Item item) {
+        itemEquipado.add(item);
     }
 
-    public void adicionarEquipamentoExtra(Equipamento equipamento) {
-        equipamentosExtras.add(equipamento);
+    public void adicionarEquipamentoExtra(Item item) {
+        equipamentosExtras.add(item);
     }
 
     public void exibirStatus() {
@@ -54,18 +54,18 @@ public class Personagem {
         System.out.println("\nHABILIDADE: " + habilidade);
         System.out.println("ENERGIA: " + energia);
         System.out.println("SORTE: " + sorte);
-        System.out.println("\nMÁGIA: " + (magia.isEmpty() ? "Nenhum" : ""));
-        for (String m : magia) {
+        System.out.println("\nMÁGIA: " + (magiaEquipadas.isEmpty() ? "Nenhum" : ""));
+        for (Arcano m : magiaEquipadas) {
             System.out.println("- " + m);
         }
         System.out.println("");
-        System.out.println("Itens Equipados: " + (equipamentoEquipado.isEmpty() ? "Nenhum" : ""));
-        for (Equipamento e : equipamentoEquipado) {
+        System.out.println("Itens Equipados: " + (itemEquipado.isEmpty() ? "Nenhum" : ""));
+        for (Item e : itemEquipado) {
             System.out.println("- " + e);
         }
         System.out.println("");
         System.out.println("Mochila: " + (equipamentosExtras.isEmpty() ? "Nenhum" : ""));
-        for (Equipamento x : equipamentosExtras) {
+        for (Item x : equipamentosExtras) {
             System.out.println("- " + x);
         }
         System.out.println("");
@@ -76,8 +76,8 @@ public class Personagem {
         this.energia = energia;
         this.sorte = sorte;
         this.classe = classe;
-        this.magia = new ArrayList<>();
-        this.equipamentoEquipado = new ArrayList<>();
+        this.magiaEquipadas = new ArrayList<>();
+        this.itemEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
     }
 
@@ -85,7 +85,7 @@ public class Personagem {
     private int energia;
     private int sorte;
     private String classe;
-    private ArrayList<String> magia;
-    private List<Equipamento> equipamentoEquipado;
-    private List<Equipamento> equipamentosExtras;
+    private List<Arcano> magiaEquipadas;
+    private List<Item> itemEquipado;
+    private List<Item> equipamentosExtras;
 }

@@ -1,13 +1,6 @@
 package personagem;
 
-public class Equipamento {
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+public class Arcano {
 
     public String getTipo() {
         return tipo;
@@ -17,11 +10,19 @@ public class Equipamento {
         this.tipo = tipo;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public double getBonus() {
         return bonus;
     }
 
-    public void setBonus(double bonus) {
+    public void setBonus(float bonus) {
         this.bonus = bonus;
     }
 
@@ -30,13 +31,13 @@ public class Equipamento {
         return "Nome: " + nome + " | Tipo: " + tipo + " | Bônus: " + bonus;
     }
 
-    public Equipamento(String nome, String tipo, double bonus) {
-        this.nome = nome;
+    public Arcano(String tipo, String nome, double bonus) {
         this.tipo = tipo;
+        this.nome = nome;
         this.bonus = bonus;
     }
 
-    private String nome;
     private String tipo;
+    private String nome;
     private double bonus;
 }
