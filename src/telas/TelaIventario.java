@@ -2,6 +2,7 @@ package telas;
 
 import java.util.Random;
 
+import assets.Save;
 import mundo.Arcano;
 import personagem.Item;
 import personagem.Personagem;
@@ -136,6 +137,8 @@ public class TelaIventario {
             personagem.adicionarEquipamentoExtra(item);
         }
         personagem.exibirStatus();
+        Save save = new Save(personagem);
+        save.salvarJogo();
         telaPadrao.setPersonagem(personagem);
         telaPadrao.lerCena(1);
     }

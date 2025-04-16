@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Personagem implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
 
     public String getNome() {
         return nome;
@@ -95,6 +93,33 @@ public class Personagem implements Serializable {
         System.out.println("");
     }
 
+    public String statusComoTexto() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("------- STATUS DO PERSONAGEM -------\n");
+        sb.append("Nome: ").append(nome).append("\n");
+        sb.append("Classe: ").append(classe).append("\n\n");
+        sb.append("HABILIDADE: ").append(habilidade).append("\n");
+        sb.append("ENERGIA: ").append(energia).append("\n");
+        sb.append("SORTE: ").append(sorte).append("\n\n");
+
+        sb.append("MÁGIAS: ").append(magiaEquipadas.isEmpty() ? "Nenhum\n" : "\n");
+        for (Arcano m : magiaEquipadas) {
+            sb.append("- ").append(m).append("\n");
+        }
+
+        sb.append("\nItens Equipados: ").append(itemEquipado.isEmpty() ? "Nenhum\n" : "\n");
+        for (Item e : itemEquipado) {
+            sb.append("- ").append(e).append("\n");
+        }
+
+        sb.append("\nMochila: ").append(equipamentosExtras.isEmpty() ? "Nenhum\n" : "\n");
+        for (Item x : equipamentosExtras) {
+            sb.append("- ").append(x).append("\n");
+        }
+
+        return sb.toString();
+    }
+
     public Personagem(String nome, int habilidade, int energia, int sorte, int tesouro, String classe) {
         this.nome = nome;
         this.habilidade = habilidade;
@@ -105,6 +130,10 @@ public class Personagem implements Serializable {
         this.magiaEquipadas = new ArrayList<>();
         this.itemEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
+    }
+
+    public  Personagem() {
+
     }
 
     private String nome;

@@ -1,12 +1,16 @@
 package telas;
 
+import assets.Load;
 import personagem.Personagem;
 
 import java.util.Scanner;
 
 public class TelaDeAbertura {
     Scanner sc = new Scanner(System.in);
+    Personagem personagem = new Personagem();
+    TelaPadrao telaPadrao = new TelaPadrao();
     TelaIventario telaIventario = new TelaIventario();
+
 
     public void exibirMenu() {
         System.out.println("-------  TELA DE ABERTURA  -------");
@@ -24,7 +28,7 @@ public class TelaDeAbertura {
                 telaIventario.configurarPersonagem();
                 break;
             case 2:
-                //carregarJogo();
+                carregarJogo();
                 break;
             case 3:
                 exibirCreditos();
@@ -34,6 +38,20 @@ public class TelaDeAbertura {
                 break;
             default:
                 System.out.println("Opção inválida! Tente novamente.");
+        }
+    }
+
+    private void carregarJogo() {
+        Load load = new Load("C:\\Users\\João\\Desktop\\interactive_ebook\\src\\assets\\save.json");
+        personagem = load.carregarJson();
+
+        if (personagem != null) {
+            telaPadrao.setPersonagem(personagem);
+            personagem.exibirStatus();
+        } else {
+            System.out.println("Não foi possivel carregar o jogo!");
+            System.out.println("Voltando ao menu principal.");
+            exibirMenu();
         }
     }
 

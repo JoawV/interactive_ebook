@@ -1,0 +1,25 @@
+{
+  "nome": "joao",
+  "habilidade": 10,
+  "energia": 16,
+  "sorte": 10,
+  "tesouro": 0,
+  "classe": "mago",
+  "magiaEquipadas": [
+    {
+      "tipo": "Feitiço",
+      "nome": "Mágia de Fogo",
+      "bonus": 3.0
+    }
+  ],
+  "itemEquipado": [
+    {
+      "nome": "Espada",
+      "tipo": "ataque",
+      "combate": 1,
+      "fa": 4.0,
+      "bonus": 4.0
+    }
+  ],
+  "equipamentosExtras": []
+}
