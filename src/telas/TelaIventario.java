@@ -137,10 +137,11 @@ public class TelaIventario {
             personagem.adicionarEquipamentoExtra(item);
         }
         personagem.exibirStatus();
+        personagem.setCena(1);
+        telaPadrao.setPersonagem(personagem);
+        telaPadrao.iniciarJogo();
         Save save = new Save(personagem);
         save.salvarJogo();
-        telaPadrao.setPersonagem(personagem);
-        telaPadrao.lerCena(1);
     }
 
     public Personagem getPersonagem() {

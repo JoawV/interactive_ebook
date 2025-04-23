@@ -9,19 +9,19 @@ import personagem.Personagem;
 
 public class Save {
     Personagem personagem;
-
     public Save(Personagem personagem) {
         this.personagem = personagem;
     }
+
     public void salvarJogo() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(personagem);
 
         try (FileWriter writer = new FileWriter("C:\\Users\\João\\Desktop\\interactive_ebook\\src\\assets\\save.json")) {
             writer.write(json);
-            System.out.println("Jogo salvo em JSON com sucesso!");
+            System.out.println("Jogo salvo com sucesso!");
         } catch (IOException e) {
-            System.out.println("Erro ao salvar o jogo em JSON.");
+            System.out.println("Erro ao salvar o jogo...");
             e.printStackTrace();
         }
     }

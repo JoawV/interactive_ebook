@@ -48,6 +48,7 @@ public class TelaDeAbertura {
         if (personagem != null) {
             telaPadrao.setPersonagem(personagem);
             personagem.exibirStatus();
+            telaPadrao.lerCena(personagem.getCena());
         } else {
             System.out.println("Não foi possivel carregar o jogo!");
             System.out.println("Voltando ao menu principal.");

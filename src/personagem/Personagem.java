@@ -57,6 +57,10 @@ public class Personagem implements Serializable {
         this.classe = classe;
     }
 
+    public int getCena() { return cena; }
+
+    public void setCena(int cena) { this.cena = cena; }
+
     public void adicionarMagia(Arcano magias) {
         magiaEquipadas.add(magias);
     }
@@ -68,6 +72,10 @@ public class Personagem implements Serializable {
     public void adicionarEquipamentoExtra(Item item) {
         equipamentosExtras.add(item);
     }
+
+    public void adicionarTesouro(int quantidade) { this.tesouro += quantidade; }
+
+    public void adicionarProvisao(Item provisao) { this.provisoes.add(provisao); }
 
     public void exibirStatus() {
         System.out.println("------- STATUS DO PERSONAGEM -------");
@@ -130,10 +138,10 @@ public class Personagem implements Serializable {
         this.magiaEquipadas = new ArrayList<>();
         this.itemEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
+        this.provisoes = new ArrayList<>();
     }
 
     public  Personagem() {
-
     }
 
     private String nome;
@@ -142,7 +150,9 @@ public class Personagem implements Serializable {
     private int sorte;
     private int tesouro;
     private String classe;
+    private int cena;
     private List<Arcano> magiaEquipadas;
     private List<Item> itemEquipado;
     private List<Item> equipamentosExtras;
+    private List<Item> provisoes;
 }

@@ -5,10 +5,11 @@ import com.google.gson.GsonBuilder;
 import java.io.FileReader;
 import java.io.IOException;
 import personagem.Personagem;
+import telas.TelaPadrao;
 
 public class Load {
+    TelaPadrao telaPadrao = new TelaPadrao();
     private String jsonArquivo;
-
     public Load(String jsonArquivo) {
         this.jsonArquivo = jsonArquivo;
     }
@@ -17,6 +18,8 @@ public class Load {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileReader reader = new FileReader(jsonArquivo)) {
             Personagem p = gson.fromJson(reader, Personagem.class);
+            telaPadrao.setPersonagem(p);
+            telaPadrao.lerCena(p.getCena());
             System.out.println("Jogo carregado com sucesso!");
             return p;
         } catch (IOException e) {
