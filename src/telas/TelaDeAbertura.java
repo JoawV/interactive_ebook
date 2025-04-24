@@ -42,8 +42,8 @@ public class TelaDeAbertura {
     }
 
     private void carregarJogo() {
-        Load load = new Load("C:\\Users\\João\\Desktop\\interactive_ebook\\src\\assets\\save.json");
-        personagem = load.carregarJson();
+        Load load = new Load();
+        personagem = load.mostrarMenuCarregamento();
 
         if (personagem != null) {
             telaPadrao.setPersonagem(personagem);

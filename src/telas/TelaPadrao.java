@@ -135,8 +135,6 @@ public class TelaPadrao {
         while (personagem.getEnergia() > 0 && monstro.getEnergia() > 0) {
             int faPersonagem = personagem.getHabilidade() + (int) (Math.random() * 10 + 1);
             int faMonstro = monstro.getHabilidade() + (int) (Math.random() * 10 + 1);
-
-            System.out.printf("");
             System.out.printf("FA " + personagem.getNome() + ": " + faPersonagem + " | FA " + monstro.getRaca() + ": " + faMonstro + "\n");
 
             if (faPersonagem > faMonstro) {

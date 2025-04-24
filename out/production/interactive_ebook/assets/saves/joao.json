@@ -1,5 +1,5 @@
 {
-  "nome": "fsd",
+  "nome": "joao",
   "habilidade": 12,
   "energia": 18,
   "sorte": 6,
@@ -10,7 +10,7 @@
     {
       "tipo": "Feitiço",
       "nome": "Mágia de Fogo",
-      "bonus": 1.0
+      "bonus": 5.0
     }
   ],
   "itemEquipado": [
@@ -18,8 +18,8 @@
       "nome": "Armadura",
       "tipo": "defesa",
       "combate": 1,
-      "fa": 5.0,
-      "bonus": 5.0
+      "fa": 6.0,
+      "bonus": 6.0
     }
   ],
   "equipamentosExtras": [

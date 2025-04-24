@@ -1,22 +1,22 @@
 {
-  "nome": "joao",
+  "nome": "fsd",
   "habilidade": 12,
-  "energia": 12,
-  "sorte": 12,
-  "tesouro": 0,
+  "energia": 18,
+  "sorte": 6,
+  "tesouro": 5,
   "classe": "mago",
   "cena": 4,
   "magiaEquipadas": [
     {
       "tipo": "Feitiço",
       "nome": "Mágia de Fogo",
-      "bonus": 2.0
+      "bonus": 1.0
     }
   ],
   "itemEquipado": [
     {
-      "nome": "Espada",
-      "tipo": "ataque",
+      "nome": "Armadura",
+      "tipo": "defesa",
       "combate": 1,
       "fa": 5.0,
       "bonus": 5.0
@@ -24,12 +24,20 @@
   ],
   "equipamentosExtras": [
     {
-      "nome": "chave",
+      "nome": "adaga",
+      "tipo": "w",
+      "combate": 1,
+      "fa": 1.0,
+      "bonus": 1.0
+    }
+  ],
+  "provisoes": [
+    {
+      "nome": "Provisão",
       "tipo": "c",
       "combate": 0,
       "fa": 0.0,
       "bonus": 0.0
     }
-  ],
-  "provisoes": []
+  ]
 }

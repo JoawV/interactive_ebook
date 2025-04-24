@@ -1,0 +1,27 @@
+{
+  "nome": "555",
+  "habilidade": 12,
+  "energia": 18,
+  "sorte": 6,
+  "tesouro": 0,
+  "classe": "mago",
+  "cena": 0,
+  "magiaEquipadas": [
+    {
+      "tipo": "Feitiço",
+      "nome": "Mágia de Fogo",
+      "bonus": 6.0
+    }
+  ],
+  "itemEquipado": [
+    {
+      "nome": "Espada",
+      "tipo": "ataque",
+      "combate": 1,
+      "fa": 6.0,
+      "bonus": 6.0
+    }
+  ],
+  "equipamentosExtras": [],
+  "provisoes": []
+}
