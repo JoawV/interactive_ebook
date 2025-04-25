@@ -98,13 +98,13 @@ public class TelaPadrao {
                     narrativa.append(linha).append("\n");
                 }
             }
-
             System.out.println(narrativa);
             Monstro monstro = new Monstro(nome, habilidade, energia, sorte,
                     provisoes > 0 ? new Item("Provisão", "c", 0, 0, 0) : null,
                     item, tesouro);
 
-            boolean venceu = executarCombate(monstro);
+            TelaCombate combate = new TelaCombate();
+            boolean venceu = combate.executarCombate(personagem, monstro);
 
             if (venceu) {
                 System.out.println("Você venceu o combate!");
@@ -131,28 +131,6 @@ public class TelaPadrao {
         }
     }
 
-    private boolean executarCombate(Monstro monstro) {
-        while (personagem.getEnergia() > 0 && monstro.getEnergia() > 0) {
-            int faPersonagem = personagem.getHabilidade() + (int) (Math.random() * 10 + 1);
-            int faMonstro = monstro.getHabilidade() + (int) (Math.random() * 10 + 1);
-            System.out.printf("FA " + personagem.getNome() + ": " + faPersonagem + " | FA " + monstro.getRaca() + ": " + faMonstro + "\n");
-
-            if (faPersonagem > faMonstro) {
-                monstro.setEnergia(monstro.getEnergia() - 2);
-                System.out.println("Você acertou o monstro!");
-            } else if (faMonstro > faPersonagem) {
-                personagem.setEnergia(personagem.getEnergia() - 2);
-                System.out.println("O monstro te acertou!");
-            } else {
-                System.out.println("Empate! Ninguém acerta.");
-            }
-
-            System.out.printf("Sua Energia: %d | Energia do Monstro: %d\n\n",
-                    personagem.getEnergia(), monstro.getEnergia());
-        }
-
-        return personagem.getEnergia() > 0;
-    }
 
     private Item criarItem(String linha) { //cria o item encontrado na cena
         String[] dados = linha.split(";");

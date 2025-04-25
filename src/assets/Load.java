@@ -15,7 +15,7 @@ public class Load {
     TelaPadrao telaPadrao = new TelaPadrao();
     private String jsonArquivo;
     public Load() {};
-    private final String pastaSaves = "C:\\Users\\João\\Desktop\\interactive_ebook\\src\\assets\\saves";
+    private final String pastaSaves = "src\\assets\\saves";
 
     public Personagem mostrarMenuCarregamento() {
         File pasta = new File(pastaSaves);

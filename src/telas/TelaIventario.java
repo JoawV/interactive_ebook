@@ -82,7 +82,7 @@ public class TelaIventario {
         if (classeEscolhida.equalsIgnoreCase("Mago")) {
             System.out.println("\nVocê escolheu a classe Mago e recebeu uma magia adicional");
             System.out.println("1* Magia de Fogo");
-            double bonus = 1 + random.nextInt(6);
+            double bonus = 1 + random.nextInt(5);
             arcano = new Arcano("Feitiço", "Mágia de Fogo", bonus);
             personagem.adicionarMagia(arcano);
         }
@@ -131,10 +131,10 @@ public class TelaIventario {
 
         if(classeEscolhida.equalsIgnoreCase("Guerreiro")) {
             System.out.println("Por ser da Classe Guerreiro você recebeu um equipamento extra!");
-            System.out.println("O Equipamento foi enviado para a Mochila!\n");
+            System.out.println("O Equipamento foi equipado automaticamente!\n");
             bonus = 1 + random.nextInt(6);
             item = new Item(extra, extra2, combateBoolean, faMomentanea, bonus);
-            personagem.adicionarEquipamentoExtra(item);
+            personagem.adicionarEquipamentoPrincipal(item);
         }
         Save save = new Save(personagem);
         save.salvarJogo();

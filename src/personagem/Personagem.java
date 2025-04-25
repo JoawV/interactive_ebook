@@ -59,6 +59,14 @@ public class Personagem implements Serializable {
 
     public int getCena() { return cena; }
 
+    public List<Item> getItemEquipado() {
+        return itemEquipado;
+    }
+
+    public List<Arcano> getMagiaEquipadas() {
+        return magiaEquipadas;
+    }
+
     public void setCena(int cena) { this.cena = cena; }
 
     public void adicionarMagia(Arcano magias) {
@@ -156,3 +164,4 @@ public class Personagem implements Serializable {
     private List<Item> equipamentosExtras;
     private List<Item> provisoes;
 }
+
