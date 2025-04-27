@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import personagem.Personagem;
+import telas.TelaIventario;
 import telas.TelaPadrao;
 
 public class Load {
     TelaPadrao telaPadrao = new TelaPadrao();
+    TelaIventario telaIventario = new TelaIventario(telaPadrao);
     private String jsonArquivo;
     public Load() {};
     private final String pastaSaves = "src\\assets\\saves";
@@ -26,7 +28,7 @@ public class Load {
             return null;
         }
 
-        System.out.println("=== Arquivos salvos encontrados ===");
+        System.out.println("\n=== Arquivos salvos encontrados ===");
         for (int i = 0; i < arquivos.length; i++) {
             System.out.println((i + 1) + " - " + arquivos[i].getName());
         }
@@ -52,9 +54,7 @@ public class Load {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileReader reader = new FileReader(caminho)) {
             Personagem p = gson.fromJson(reader, Personagem.class);
-            telaPadrao.setPersonagem(p);
-            telaPadrao.lerCena(p.getCena());
-            System.out.println("Jogo carregado com sucesso!");
+            System.out.println("Jogo carregado com sucesso!\n");
             return p;
         } catch (IOException e) {
             System.out.println("Erro ao carregar o jogo.");

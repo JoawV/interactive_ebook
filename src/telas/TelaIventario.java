@@ -9,15 +9,19 @@ import personagem.Personagem;
 import java.util.Scanner;
 
 public class TelaIventario {
-    TelaPadrao telaPadrao = new TelaPadrao();
     private Personagem personagem;
+    private TelaPadrao telaPadrao;
     private Item item;
     private Arcano arcano;
     private int tesouro = 0;
 
     Scanner sc = new Scanner(System.in);
+    public void setPersonagem(Personagem personagem) {
+        this.personagem = personagem;
+    }
+    public TelaIventario(TelaPadrao telaPadrao) { this.telaPadrao = telaPadrao; }
 
-    public void configurarPersonagem() {
+    public Personagem configurarPersonagem() {
         Random random = new Random();
 
         int pontosDisponiveis = 12;
@@ -29,8 +33,8 @@ public class TelaIventario {
         int pontosDeEnergia = 0;
         int pontosDeSorte = 0;
 
-        System.out.println("------- CONFIGURAÇÃO DO PERSONAGEM -------\n");
-        System.out.println("Insira seu nome: ");
+        System.out.print("\n------- CONFIGURAÇÃO DO PERSONAGEM -------\n");
+        System.out.print("Insira seu nome: ");
         String nomePersonagem = sc.nextLine();
         System.out.println("Você tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
         while (true) {
@@ -136,12 +140,34 @@ public class TelaIventario {
             item = new Item(extra, extra2, combateBoolean, faMomentanea, bonus);
             personagem.adicionarEquipamentoPrincipal(item);
         }
-        Save save = new Save(personagem);
-        save.salvarJogo();
         personagem.exibirStatus();
-        personagem.setCena(1);
-        telaPadrao.setPersonagem(personagem);
-        telaPadrao.iniciarJogo();
+        return personagem;
+    }
+
+    public void abrirInventario() {
+        System.out.println("\n===== INVENTÁRIO =====");
+        personagem.exibirStatus();
+        System.out.println("\nO que deseja fazer?");
+        System.out.println("1 - Trocar item equipado");
+        System.out.println("2 - Usar uma provisão");
+        System.out.println("3 - Voltar para o jogo");
+
+        int opcao = sc.nextInt();
+        sc.nextLine();
+        switch (opcao) {
+            case 1:
+                personagem.trocarItemEquipado();
+                break;
+            case 2:
+                personagem.usarProvisao();
+                break;
+            case 3:
+                System.out.println("Voltando para a aventura...");
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
     }
 
     public Personagem getPersonagem() {

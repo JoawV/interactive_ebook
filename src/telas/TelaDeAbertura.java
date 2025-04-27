@@ -1,6 +1,7 @@
 package telas;
 
 import assets.Load;
+import assets.Save;
 import personagem.Personagem;
 
 import java.util.Scanner;
@@ -9,9 +10,8 @@ public class TelaDeAbertura {
     Scanner sc = new Scanner(System.in);
     Personagem personagem = new Personagem();
     TelaPadrao telaPadrao = new TelaPadrao();
-    TelaIventario telaIventario = new TelaIventario();
-
-
+    TelaIventario telaIventario = new TelaIventario(telaPadrao);
+    public TelaDeAbertura() { telaPadrao.setTelaIventario(telaIventario); }
     public void exibirMenu() {
         System.out.println("-------  TELA DE ABERTURA  -------");
         System.out.println("1 - NOVO JOGO");
@@ -25,7 +25,12 @@ public class TelaDeAbertura {
 
         switch (opcao) {
             case 1:
-                telaIventario.configurarPersonagem();
+                personagem = telaIventario.configurarPersonagem();
+                personagem.setCena(1);
+                Save save = new Save(personagem);
+                save.salvarJogo();
+                telaPadrao.setPersonagem(personagem);
+                telaPadrao.iniciarJogo();
                 break;
             case 2:
                 carregarJogo();
@@ -47,6 +52,8 @@ public class TelaDeAbertura {
 
         if (personagem != null) {
             telaPadrao.setPersonagem(personagem);
+            telaIventario.setPersonagem(personagem);
+            telaPadrao.setTelaIventario(telaIventario);
             personagem.exibirStatus();
             telaPadrao.lerCena(personagem.getCena());
         } else {
@@ -57,9 +64,9 @@ public class TelaDeAbertura {
     }
 
     private void exibirCreditos() {
-        System.out.println("\n------- DESENVOLVIDO POR -------");
-        System.out.println("João");
-        System.out.println("Paulo");
+        System.out.println("\nDESENVOLVIDO POR:");
+        System.out.println("- João Vítor Silva dos Santos");
+        System.out.println("- Paulo Willian Joner Cassel");
         System.out.println("");
         exibirMenu();
     }

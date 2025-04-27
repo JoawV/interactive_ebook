@@ -1,6 +1,4 @@
 #1
 Você está em uma encruzilhada na floresta. Um caminho leva a uma cabana, o outro a uma caverna escura.
-1 - Ir até a cabana
-2 - Entrar na caverna
-#2: Você decide investigar a cabana
-#3: Você entra na caverna
+#2: [1] - Ir até a cabana
+#3: [2] - Entrar na caverna

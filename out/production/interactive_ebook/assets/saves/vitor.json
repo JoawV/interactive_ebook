@@ -1,0 +1,28 @@
+{
+  "nome": "vitor",
+  "habilidade": 12,
+  "energia": 18,
+  "sorte": 6,
+  "tesouro": 0,
+  "classe": "guerreiro",
+  "cena": 1,
+  "magiaEquipadas": [],
+  "itemEquipado": [
+    {
+      "nome": "Armadura",
+      "tipo": "defesa",
+      "combate": 1,
+      "fa": 4.0,
+      "bonus": 4.0
+    },
+    {
+      "nome": "Espada",
+      "tipo": "Ataque",
+      "combate": 1,
+      "fa": 4.0,
+      "bonus": 4.0
+    }
+  ],
+  "equipamentosExtras": [],
+  "provisoes": []
+}

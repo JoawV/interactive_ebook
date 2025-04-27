@@ -1,4 +1,6 @@
 #2
 Você encontra uma chave enferrujada em cima de uma mesa.
+
 I: chave;c;0;0;0
-#4: Você volta à encruzilhada e segue pela caverna
+
+#4: [1] - Guardar Item[chave] no inventário e voltar á encruzilhada.

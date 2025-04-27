@@ -6,6 +6,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Personagem implements Serializable {
 
@@ -84,6 +85,68 @@ public class Personagem implements Serializable {
     public void adicionarTesouro(int quantidade) { this.tesouro += quantidade; }
 
     public void adicionarProvisao(Item provisao) { this.provisoes.add(provisao); }
+
+    public void trocarItemEquipado() {
+        if(equipamentosExtras.isEmpty()) {
+            System.out.println("Você não possui itens para equipar.");
+            return;
+        }
+
+        System.out.print("\nItens disponíveis:");
+        for (int i = 0; i < equipamentosExtras.size(); i++) {
+            System.out.println((i + 1) + " - " + equipamentosExtras.get(i));
+        }
+
+        System.out.print("\nEscolha o número do item que deseja equipar: ");
+        Scanner sc = new Scanner(System.in);
+        int escolha = sc.nextInt();
+        sc.nextLine();
+        if (escolha < 1 || escolha > equipamentosExtras.size()) {
+            System.out.println("Escolha inválida.");
+            return;
+        }
+
+        if (itemEquipado.size() < 3) {
+            Item itemEscolhido = equipamentosExtras.remove(escolha - 1); //retira item da mochila
+            itemEquipado.add(itemEscolhido); //equipa o novo item
+            System.out.println("Você equipou: " + itemEscolhido);
+            //Item itemAntigo = itemEquipado.remove(0); //remove o item equipado atual
+            //equipamentosExtras.add(itemAntigo); //devolve para a mochila
+            //System.out.println("Você guardou: " + itemAntigo);
+        } else {
+            System.out.println("Você atingiu o limite de itens equipados!");
+        }
+    }
+
+    public void usarProvisao() {
+        if (provisoes.isEmpty()) {
+            System.out.print("Você não possui provisões para usar.");
+            return;
+        }
+
+        System.out.print("\nProvisões disponíveis:");
+        for (int i = 0; i < provisoes.size(); i++) {
+            System.out.println((i + 1) + " - " + provisoes.get(i));
+        }
+
+        System.out.print("\nEscolha o número da provisão que deseja usar: ");
+        Scanner sc = new Scanner(System.in);
+        int escolha = sc.nextInt();
+        sc.nextLine();
+
+        if (escolha < 1 || escolha > provisoes.size()) {
+            System.out.println("Escolha inválida.");
+            return;
+        }
+
+        Item provisao = provisoes.remove(escolha - 1);
+        int energiaRecuperada = 4; //cada provisão recupera 4 pontos de energia
+        energia += energiaRecuperada;
+        if (energia > 24) {
+            energia = 24;
+        }
+        System.out.println("Você usou uma provisão e recuperou " + energiaRecuperada + " pontos de energia!");
+    }
 
     public void exibirStatus() {
         System.out.println("------- STATUS DO PERSONAGEM -------");

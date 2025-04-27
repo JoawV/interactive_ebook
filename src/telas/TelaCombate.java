@@ -18,10 +18,9 @@ public class TelaCombate {
         int sorte = 0;
 
         while (true) {
-            System.out.println("\n=== Combate ===");
-            System.out.printf("Monstro: %s\n", monstro.getRaca());
-            System.out.printf("Habilidade: %d | Energia: %d | Sorte: %d\n",
-                    monstro.getHabilidade(), monstro.getEnergia(), monstro.getSorte());
+            System.out.println("=== Combate ===");
+            System.out.printf("Monstro: " + monstro.getRaca() + "\n");
+            System.out.printf("Habilidade: " + monstro.getHabilidade() + " | Energia: " + monstro.getEnergia() + " | Sorte: " + monstro.getSorte() + "\n");
             if (monstro.getItem() != null) {
                 System.out.println("Item carregado: " + monstro.getItem());
             }
@@ -36,7 +35,7 @@ public class TelaCombate {
             int escolha = sc.nextInt();
 
             switch (escolha) {
-                case 1: // Atacar
+                case 1:
                     int faBase = personagem.getHabilidade() + rand.nextInt(10) + 1;
                     int faBaseMonstro = monstro.getHabilidade() + rand.nextInt(10) + 1;
                     int bonusItemFa = 0;
@@ -135,7 +134,7 @@ public class TelaCombate {
                     }
                     int faMonstroMa = faBaseMonstroMa + bonusItemFaMonstroMa;
 
-                    System.out.println("Escolha uma magia para usar:");
+                    System.out.println("\nEscolha uma magia para usar:");
                     for (int i = 0; i < magias.size(); i++) {
                         System.out.printf("[%d] %s\n", i + 1, magias.get(i));
                     }
@@ -149,12 +148,12 @@ public class TelaCombate {
 
                     Arcano magiaEscolhida = magias.get(escolhaMagia - 1);
 
-                    System.out.printf("FA %s: %d | FA %s: %d\n", personagem.getNome(), faPersonagemMa, monstro.getRaca(), faMonstroMa);
+                    System.out.printf("\nFA %s: %d | FA %s: %d\n", personagem.getNome(), faPersonagemMa, monstro.getRaca(), faMonstroMa);
 
                     if (faPersonagemMa > faMonstroMa) {
                         int dano = 2 + danoExtraMa - monstroTankMa + sorte + (int)magiaEscolhida.getBonus();
                         monstro.setEnergia(monstro.getEnergia() - dano);
-                        System.out.printf("%s usada!", magiaEscolhida.getNome());
+                        System.out.printf(magiaEscolhida.getNome() + " usada! ");
                         System.out.printf("Você acertou o monstro e causou %d de dano! | Magia %d | Extra %d | Tankou: %d | Sorte: %d\n", dano, (int)magiaEscolhida.getBonus(), danoExtraMa, monstroTankMa, sorte);
                         sorte = 0;
                     } else if (faMonstroMa > faPersonagemMa) {

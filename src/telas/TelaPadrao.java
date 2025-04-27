@@ -14,21 +14,25 @@ import personagem.Personagem;
 
 public class TelaPadrao {
     private Personagem personagem;
+    private TelaIventario telaIventario;
     private Monstro monstro;
     private Item item;
     private final Scanner sc = new Scanner(System.in);
+    public void setTelaIventario(TelaIventario telaIventario) { this.telaIventario = telaIventario; }
     public void setPersonagem(Personagem personagem) {
         this.personagem = personagem;
     }
-
     public void iniciarJogo() { lerCena(personagem.getCena()); }
 
     public void lerCena(int numCena) {
         personagem.setCena(numCena); // atualiza a cena no personagem
+        Save save = new Save(personagem);
+        save.salvarJogo();
         try {
             File arquivo = new File("src\\cenas\\" + numCena + ".txt");
             Scanner leitor = new Scanner(arquivo);
             List<Integer> opcoes = new ArrayList<>();
+            List<String> textosOpcoes = new ArrayList<>();
 
             if (leitor.hasNextLine()) {
                 String linha = leitor.nextLine().trim();
@@ -50,7 +54,8 @@ public class TelaPadrao {
                     int indice = linha.indexOf(":");
                     int proximaCena = Integer.parseInt(linha.substring(1, indice != -1 ? indice : linha.length()).trim());
                     opcoes.add(proximaCena);
-                    System.out.println(linha.substring(indice + 1).trim());
+                    String textoOpcao = linha.substring(indice + 1).trim();
+                    textosOpcoes.add(textoOpcao);
                 } else {
                     System.out.println(linha);
                 }
@@ -59,13 +64,24 @@ public class TelaPadrao {
             leitor.close();
 
             if (!opcoes.isEmpty()) {
-//                for (int i = 0; i < opcoes.size(); i++) {
-//                    System.out.printf("[%d] Ir para a cena %d\n", i + 1, opcoes.get(i));
-//                }
-                System.out.println("\nEscolha uma opção:");
-                int escolha = sc.nextInt();
-                sc.nextLine(); // limpar buffer
-                lerCena(opcoes.get(escolha - 1));
+                while (true) {
+                    for (int i = 0; i < textosOpcoes.size(); i++) {
+                        System.out.println(textosOpcoes.get(i));
+                    }
+                    System.out.println("[" + (opcoes.size() + 1) + "] - Abrir Inventário");
+                    System.out.print("Escolha uma opção: ");
+                    int escolha = sc.nextInt();
+                    sc.nextLine();
+
+                    if (escolha >= 1 && escolha <= opcoes.size()) {
+                        lerCena(opcoes.get(escolha - 1));
+                        break;
+                    } else if (escolha == opcoes.size() + 1) {
+                        telaIventario.abrirInventario();
+                    } else {
+                        System.out.println("Opção inválida. Tente novamente.");
+                    }
+                }
             }
 
         } catch (FileNotFoundException e) {

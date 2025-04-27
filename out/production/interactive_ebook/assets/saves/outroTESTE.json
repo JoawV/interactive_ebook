@@ -1,55 +1,42 @@
 {
-  "nome": "joao",
-  "habilidade": 12,
-  "energia": 18,
-  "sorte": 5,
+  "nome": "outroTESTE",
+  "habilidade": 6,
+  "energia": 20,
+  "sorte": 6,
   "tesouro": 10,
-  "classe": "mago",
+  "classe": "guerreiro",
   "cena": 1,
-  "magiaEquipadas": [
-    {
-      "tipo": "Feitiço",
-      "nome": "Mágia de Fogo",
-      "bonus": 5.0
-    }
-  ],
+  "magiaEquipadas": [],
   "itemEquipado": [
-    {
-      "nome": "Espada",
-      "tipo": "ataque",
-      "combate": 1,
-      "fa": 4.0,
-      "bonus": 4.0
-    },
     {
       "nome": "Armadura",
       "tipo": "defesa",
       "combate": 1,
-      "fa": 6.0,
-      "bonus": 6.0
-    },
-    {
-      "nome": "adaga",
-      "tipo": "w",
-      "combate": 1,
       "fa": 1.0,
       "bonus": 1.0
+    },
+    {
+      "nome": "Espada",
+      "tipo": "Ataque",
+      "combate": 1,
+      "fa": 1.0,
+      "bonus": 3.0
     }
   ],
   "equipamentosExtras": [
     {
+      "nome": "pão",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
+    },
+    {
       "nome": "adaga",
       "tipo": "w",
       "combate": 1,
       "fa": 1.0,
       "bonus": 1.0
-    },
-    {
-      "nome": "chave",
-      "tipo": "c",
-      "combate": 0,
-      "fa": 0.0,
-      "bonus": 0.0
     }
   ],
   "provisoes": [
