@@ -18,6 +18,7 @@ public class TelaCombate {
         int sorte = 0;
 
         while (true) {
+            //Monstrando os dados do monstro
             System.out.println("=== Combate ===");
             System.out.printf("Monstro: " + monstro.getRaca() + "\n");
             System.out.printf("Habilidade: " + monstro.getHabilidade() + " | Energia: " + monstro.getEnergia() + " | Sorte: " + monstro.getSorte() + "\n");
@@ -36,6 +37,7 @@ public class TelaCombate {
 
             switch (escolha) {
                 case 1:
+                    //inicia/reinicia todas variaveis que serão usadas
                     int faBase = personagem.getHabilidade() + rand.nextInt(10) + 1;
                     int faBaseMonstro = monstro.getHabilidade() + rand.nextInt(10) + 1;
                     int bonusItemFa = 0;
@@ -72,6 +74,9 @@ public class TelaCombate {
 
                     System.out.printf("\nFA %s: %d | FA %s: %d\n", personagem.getNome(), faPersonagem, monstro.getRaca(), faMonstro);
 
+                    //FA é somado com o FA dos itens que o personagem/monstro tem
+                    //Quem ganhar o FA, da o dano(2), com bonus de dano dos itens que o personagem/monstro tem
+                    //Se alguém tiver item de defesa, o bonus referente vai ser o quanto o peronsagem/monstro vai aguentar de dano
                     if (faPersonagem > faMonstro) {
                         int dano = 2 + danoExtra - monstroTank + sorte;
                         monstro.setEnergia(monstro.getEnergia() - dano);
@@ -134,6 +139,7 @@ public class TelaCombate {
                     }
                     int faMonstroMa = faBaseMonstroMa + bonusItemFaMonstroMa;
 
+                    //pesquisa as magias que você tem, pode usar qualquer uma se tiver.
                     System.out.println("\nEscolha uma magia para usar:");
                     for (int i = 0; i < magias.size(); i++) {
                         System.out.printf("[%d] %s\n", i + 1, magias.get(i));
@@ -150,6 +156,7 @@ public class TelaCombate {
 
                     System.out.printf("\nFA %s: %d | FA %s: %d\n", personagem.getNome(), faPersonagemMa, monstro.getRaca(), faMonstroMa);
 
+                    //mesma coisa do ataque, magia não da bonus FA, mas da bonus no ataque
                     if (faPersonagemMa > faMonstroMa) {
                         int dano = 2 + danoExtraMa - monstroTankMa + sorte + (int)magiaEscolhida.getBonus();
                         monstro.setEnergia(monstro.getEnergia() - dano);
@@ -199,6 +206,7 @@ public class TelaCombate {
                     break;
 
                 case 4:
+                    //ele foge
                     System.out.println("Você tentou fugir, mas o monstro te alcançou. Você perdeu a batalha...");
                     return false;
 

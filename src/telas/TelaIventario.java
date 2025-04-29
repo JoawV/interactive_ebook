@@ -33,6 +33,8 @@ public class TelaIventario {
         int pontosDeEnergia = 0;
         int pontosDeSorte = 0;
 
+
+        //construir o personagem
         System.out.print("\n------- CONFIGURAÇÃO DO PERSONAGEM -------\n");
         System.out.print("Insira seu nome: ");
         String nomePersonagem = sc.nextLine();
@@ -78,6 +80,7 @@ public class TelaIventario {
         String classeEscolhida = "";
         boolean classeValida = false;
 
+        //escolher a classe (Guerreiro ou Mago)
         while (!classeValida) {
             System.out.println("\nEscolha sua Classe:");
             System.out.println("Guerreiro - Focado em Ataque (Recebe um equipamento extra)");
@@ -94,6 +97,7 @@ public class TelaIventario {
 
         personagem = new Personagem(nomePersonagem, habilidade, energia, sorte, 0, classeEscolhida);
 
+        //constroi uma magia extra pro mago
         if (classeEscolhida.equalsIgnoreCase("Mago")) {
             System.out.println("\nVocê escolheu a classe Mago e recebeu uma magia adicional");
             System.out.println("1* Magia de Fogo");
@@ -105,6 +109,7 @@ public class TelaIventario {
         System.out.println("\nVocê tem direito a um equipamento gratuito!");
         String tipo = "";
         boolean tipoValido = false;
+
 
         while (!tipoValido) {
             System.out.print("Digite o tipo do equipamento (Ataque/Defesa): ");
@@ -137,6 +142,8 @@ public class TelaIventario {
             extra2 = "Ataque";
         }
 
+        //constroi o item pelo o que o usuario escolheu
+        //se o usuario for guerreiro, recebe um extra, com o tipo contrario do primario
         item = new Item(nome, tipo, combateBoolean, faMomentanea, bonus);
         System.out.println("\nParabéns! Você adquiriu uma '" + nome + "'");
 

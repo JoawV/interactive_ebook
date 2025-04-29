@@ -64,6 +64,7 @@ public class TelaPadrao {
 
             leitor.close();
 
+            //abrir o inventario ou seguir a cena
             if (!opcoes.isEmpty()) {
                 while (true) {
                     for (int i = 0; i < textosOpcoes.size(); i++) {
@@ -90,6 +91,7 @@ public class TelaPadrao {
         }
     }
 
+    //pegar o monstro e iniciar o combate
     private void cenaMonstro(Scanner leitor) {
         try {
             StringBuilder narrativa = new StringBuilder();
@@ -98,6 +100,7 @@ public class TelaPadrao {
             Item item = null;
             int cenaVitoria = -1, cenaDerrota = -1;
 
+            //pegando o monstro
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine().trim();
                 if (linha.startsWith("N:")) nome = linha.substring(2).trim();
@@ -120,6 +123,7 @@ public class TelaPadrao {
                     provisoes > 0 ? new Item("Provisão", "c", 0, 0, 0) : null,
                     item, tesouro);
 
+            //iniciando o combate - TelaCombate
             TelaCombate combate = new TelaCombate();
             boolean venceu = combate.executarCombate(personagem, monstro);
 
