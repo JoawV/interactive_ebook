@@ -1,0 +1,49 @@
+{
+  "nome": "Paulo",
+  "habilidade": 12,
+  "energia": 18,
+  "sorte": 6,
+  "tesouro": 0,
+  "classe": "Guerreiro",
+  "cena": 12,
+  "magiaEquipadas": [],
+  "itemEquipado": [
+    {
+      "nome": "Espada",
+      "tipo": "Ataque",
+      "combate": 1,
+      "fa": 4.0,
+      "bonus": 4.0
+    },
+    {
+      "nome": "Armadura",
+      "tipo": "Defesa",
+      "combate": 1,
+      "fa": 4.0,
+      "bonus": 2.0
+    }
+  ],
+  "equipamentosExtras": [
+    {
+      "nome": "chave",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
+    },
+    {
+      "nome": "diamante",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
+    }
+  ],
+  "provisoes": [],
+  "cenas": [
+    1,
+    2,
+    4,
+    12
+  ]
+}

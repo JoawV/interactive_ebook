@@ -36,7 +36,7 @@ public class TelaIventario {
         System.out.print("\n------- CONFIGURAÇÃO DO PERSONAGEM -------\n");
         System.out.print("Insira seu nome: ");
         String nomePersonagem = sc.nextLine();
-        System.out.println("Você tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
+        System.out.println("\nVocê tem " + pontosDisponiveis + " pontos para distribuir entre os atributos!");
         while (true) {
             System.out.print("Defina a quantidade de pontos de HABILIDADE adicionais (6-12): ");
             pontosDeHabilidade = sc.nextInt();
@@ -75,11 +75,22 @@ public class TelaIventario {
 
         System.out.println("\nPersonagem configurado com sucesso!");
 
-        System.out.println("\nEscolha sua Classe:");
-        System.out.println("Guerreiro - Focado em Ataque (Recebe um equipamento extra)");
-        System.out.println("Mago - Focado em Magia (Recebe uma magia gratuita)");
-        System.out.print("Escreva qual classe você deseja: ");
-        String classeEscolhida = sc.nextLine();
+        String classeEscolhida = "";
+        boolean classeValida = false;
+
+        while (!classeValida) {
+            System.out.println("\nEscolha sua Classe:");
+            System.out.println("Guerreiro - Focado em Ataque (Recebe um equipamento extra)");
+            System.out.println("Mago - Focado em Magia (Recebe uma magia gratuita)");
+            System.out.print("Escreva qual classe você deseja: ");
+            classeEscolhida = sc.nextLine().trim();
+
+            if (classeEscolhida.equals("Guerreiro") || classeEscolhida.equals("Mago")) {
+                classeValida = true;
+            } else {
+                System.out.println("\nClasse inválida! Digite exatamente 'Guerreiro' ou 'Mago'");
+            }
+        }
 
         personagem = new Personagem(nomePersonagem, habilidade, energia, sorte, 0, classeEscolhida);
 
@@ -94,8 +105,19 @@ public class TelaIventario {
         //TESTE ADICIONAR EQUIPAMENTOS
 
         System.out.println("\nVocê tem direito a um equipamento gratuito!");
-        System.out.print("Digite o tipo do equipamento (Ataque/Defesa): ");
-        String tipo = sc.nextLine();
+        String tipo = "";
+        boolean tipoValido = false;
+
+        while (!tipoValido) {
+            System.out.print("Digite o tipo do equipamento (Ataque/Defesa): ");
+            tipo = sc.nextLine().trim();
+
+            if (tipo.equals("Ataque") || tipo.equals("Defesa")) {
+                tipoValido = true;
+            } else {
+                System.out.println("\nTipo inválido! Digite exatamente 'Ataque' ou 'Defesa'");
+            }
+        }
 
         double bonus = 1 + random.nextInt(6);
 

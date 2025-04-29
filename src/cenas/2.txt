@@ -1,6 +1,8 @@
 #2
-Você encontra uma chave enferrujada em cima de uma mesa.
+Você se aproxima da cabana. A porta está entreaberta, rangendo com o vento.
+Lá dentro, há uma pequena mesa com uma vela apagada e uma chave prateada sobre ela.
 
 I: chave;c;0;0;0
 
-#4: [1] - Guardar Item[chave] no inventário e voltar á encruzilhada.
+#4: [1] - Guardar Item [chave] no inventário.
+

@@ -199,8 +199,8 @@ public class TelaCombate {
                     break;
 
                 case 4:
-                    //nao sei o que aconteceria aqui
-                return false;
+                    System.out.println("Você tentou fugir, mas o monstro te alcançou. Você perdeu a batalha...");
+                    return false;
 
                 default: System.out.println("Opção inválida.");
             }

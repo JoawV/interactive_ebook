@@ -43,6 +43,7 @@ public class TelaDeAbertura {
                 break;
             default:
                 System.out.println("Opção inválida! Tente novamente.");
+                break;
         }
     }
 

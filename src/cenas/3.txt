@@ -1,10 +1,12 @@
 m
-Você é atacado por um Goblin!
+Você entra na caverna e ouve o som de água pingando ao longe.
+De repente, um goblin surge das sombras e avança contra você!
+
 N: Goblin
 H: 5
 S: 3
 E: 8
 T: 5
 P: 1
-I: pão;c;0;0;
+I: pão;c;0;0;0
 6;5

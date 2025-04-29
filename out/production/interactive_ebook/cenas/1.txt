@@ -1,4 +1,7 @@
 #1
-Você está em uma encruzilhada na floresta. Um caminho leva a uma cabana, o outro a uma caverna escura.
+
+O rei convocou todos os aventureiros do reino para uma expedição secreta rumo ao norte, em busca de um artefato antigo escondido nas profundezas de uma floresta esquecida.
+Você, movido pela curiosidade e pela sede de glória, aceita o convite. Dias depois, sua caravana se perde em meio à mata fechada.
+Agora, sozinho, você se encontra em uma encruzilhada na floresta. Um caminho leva a uma cabana de aparência abandonada; o outro, a uma caverna escura e úmida.
 #2: [1] - Ir até a cabana
 #3: [2] - Entrar na caverna

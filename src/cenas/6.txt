@@ -1,10 +1,6 @@
-m
-Você é atacado por um Goblin!
-N: Goblin
-H: 5
-S: 3
-E: 8
-T: 5
-P: 1
-I: adaga;w;1;1;1
-5;5
+#6
+
+Após derrotar o inimigo, você avança pela caverna até alcançar uma câmara do tesouro.
+No centro da sala, iluminado por uma abertura no teto, está um pedestal antigo. Sobre ele repousa o tesouro reluzente que tantos buscaram.
+#7: [1] - Pegar o Tesouro
+#8: [2] - Ignorar o Tesouro e voltar para fora da caverna.

@@ -5,7 +5,7 @@
   "sorte": 5,
   "tesouro": 10,
   "classe": "mago",
-  "cena": 1,
+  "cena": 5,
   "magiaEquipadas": [
     {
       "tipo": "Feitiço",
@@ -43,6 +43,13 @@
       "combate": 1,
       "fa": 1.0,
       "bonus": 1.0
+    },
+    {
+      "nome": "chave",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
     },
     {
       "nome": "chave",

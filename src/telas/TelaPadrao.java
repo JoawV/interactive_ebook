@@ -26,6 +26,7 @@ public class TelaPadrao {
 
     public void lerCena(int numCena) {
         personagem.setCena(numCena); // atualiza a cena no personagem
+        personagem.adicionarCena(numCena);
         Save save = new Save(personagem);
         save.salvarJogo();
         try {

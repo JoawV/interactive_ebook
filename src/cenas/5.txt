@@ -1,2 +1,2 @@
 #5
-Você foi derrotado pelo Goblin... sua aventura termina aqui.
+Você foi derrotado pelo Inimigo... sua aventura termina aqui.

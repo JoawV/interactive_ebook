@@ -1,0 +1,12 @@
+m
+Após retirar o tesouro do pedestal, a caverna começa a tremer violentamente. Você tenta correr para a saída, mas é interrompido —
+um guerreiro surge diante de você. Seu corpo está em decomposição, mas seus olhos brilham com uma fúria ancestral.
+Ele está morto... mas ainda pode lutar.
+
+N: Guerreiro morto-vivo
+H: 10
+S: 10
+E: 10
+T: 100
+I: Excalibur;w;5;5;5
+8;5

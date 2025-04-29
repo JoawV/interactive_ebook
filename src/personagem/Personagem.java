@@ -68,6 +68,12 @@ public class Personagem implements Serializable {
         return magiaEquipadas;
     }
 
+    public void adicionarCena(int cena) {
+        if (!cenas.contains(cena)) {
+            cenas.add(cena);
+        }
+    }
+
     public void setCena(int cena) { this.cena = cena; }
 
     public void adicionarMagia(Arcano magias) {
@@ -210,6 +216,7 @@ public class Personagem implements Serializable {
         this.itemEquipado = new ArrayList<>();
         this.equipamentosExtras = new ArrayList<>();
         this.provisoes = new ArrayList<>();
+        this.cenas = new ArrayList<>();
     }
 
     public  Personagem() {
@@ -226,5 +233,6 @@ public class Personagem implements Serializable {
     private List<Item> itemEquipado;
     private List<Item> equipamentosExtras;
     private List<Item> provisoes;
+    private List<Integer> cenas;
 }
 

@@ -1,0 +1,12 @@
+m
+Você entra na floresta, seguindo o rastro de sangue por entre as árvores densas e retorcidas.
+Após caminhar por um longo tempo, o rastro simplesmente desaparece.
+Quando você se vira para voltar, o chão treme — um dragão colossal emerge das sombras e parte para o ataque!
+
+N: Dragão
+H: 12
+S: 15
+E: 15
+T: 1000
+I: Pele de Dragão;c;0;0;0
+11;5

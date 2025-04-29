@@ -1,0 +1,7 @@
+#8
+
+Após sair da caverna, você encontra alguns dos membros da caravana caídos no chão, derrotados.
+Há um rastro de sangue que se estende pela trilha, levando em direção a uma floresta escura e silenciosa.
+
+#9: [1] Seguir o rastro de sangue
+#10: [2] Fugir para o reino
