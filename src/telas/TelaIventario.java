@@ -102,8 +102,6 @@ public class TelaIventario {
             personagem.adicionarMagia(arcano);
         }
 
-        //TESTE ADICIONAR EQUIPAMENTOS
-
         System.out.println("\nVocê tem direito a um equipamento gratuito!");
         String tipo = "";
         boolean tipoValido = false;
@@ -170,9 +168,9 @@ public class TelaIventario {
         System.out.println("\n===== INVENTÁRIO =====");
         personagem.exibirStatus();
         System.out.println("\nO que deseja fazer?");
-        System.out.println("1 - Trocar item equipado");
-        System.out.println("2 - Usar uma provisão");
-        System.out.println("3 - Voltar para o jogo");
+        System.out.println("[1] - Trocar item equipado");
+        System.out.println("[2] - Usar uma provisão");
+        System.out.println("[3] - Voltar para o jogo");
 
         int opcao = sc.nextInt();
         sc.nextLine();

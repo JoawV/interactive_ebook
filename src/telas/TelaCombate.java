@@ -70,7 +70,7 @@ public class TelaCombate {
                     }
                     int faMonstro = faBaseMonstro + bonusItemFaM;
 
-                    System.out.printf("FA %s: %d | FA %s: %d\n", personagem.getNome(), faPersonagem, monstro.getRaca(), faMonstro);
+                    System.out.printf("\nFA %s: %d | FA %s: %d\n", personagem.getNome(), faPersonagem, monstro.getRaca(), faMonstro);
 
                     if (faPersonagem > faMonstro) {
                         int dano = 2 + danoExtra - monstroTank + sorte;

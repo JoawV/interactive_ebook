@@ -68,25 +68,17 @@ public class Personagem implements Serializable {
         return magiaEquipadas;
     }
 
-    public void adicionarCena(int cena) {
-        if (!cenas.contains(cena)) {
-            cenas.add(cena);
-        }
-    }
-
     public void setCena(int cena) { this.cena = cena; }
+
+    public void adicionarCena(int cena) { if (!cenas.contains(cena)) { cenas.add(cena); } } //adiciona as cenas visitadas em um array
 
     public void adicionarMagia(Arcano magias) {
         magiaEquipadas.add(magias);
-    }
+    } //adiciona magias em um array
 
-    public void adicionarEquipamentoPrincipal(Item item) {
-        itemEquipado.add(item);
-    }
+    public void adicionarEquipamentoPrincipal(Item item) { itemEquipado.add(item); } //adiciona os itens principais em um array
 
-    public void adicionarEquipamentoExtra(Item item) {
-        equipamentosExtras.add(item);
-    }
+    public void adicionarEquipamentoExtra(Item item) { equipamentosExtras.add(item); } //adiciona os itens para a mochila em um array
 
     public void adicionarTesouro(int quantidade) { this.tesouro += quantidade; }
 
@@ -114,11 +106,8 @@ public class Personagem implements Serializable {
 
         if (itemEquipado.size() < 3) {
             Item itemEscolhido = equipamentosExtras.remove(escolha - 1); //retira item da mochila
-            itemEquipado.add(itemEscolhido); //equipa o novo item
+            itemEquipado.add(itemEscolhido); //equipa o item novo no personagem
             System.out.println("Você equipou: " + itemEscolhido);
-            //Item itemAntigo = itemEquipado.remove(0); //remove o item equipado atual
-            //equipamentosExtras.add(itemAntigo); //devolve para a mochila
-            //System.out.println("Você guardou: " + itemAntigo);
         } else {
             System.out.println("Você atingiu o limite de itens equipados!");
         }
@@ -175,34 +164,8 @@ public class Personagem implements Serializable {
         for (Item x : equipamentosExtras) {
             System.out.println("- " + x);
         }
+        System.out.println("\nTesouro: " + tesouro);
         System.out.println("");
-    }
-
-    public String statusComoTexto() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("------- STATUS DO PERSONAGEM -------\n");
-        sb.append("Nome: ").append(nome).append("\n");
-        sb.append("Classe: ").append(classe).append("\n\n");
-        sb.append("HABILIDADE: ").append(habilidade).append("\n");
-        sb.append("ENERGIA: ").append(energia).append("\n");
-        sb.append("SORTE: ").append(sorte).append("\n\n");
-
-        sb.append("MÁGIAS: ").append(magiaEquipadas.isEmpty() ? "Nenhum\n" : "\n");
-        for (Arcano m : magiaEquipadas) {
-            sb.append("- ").append(m).append("\n");
-        }
-
-        sb.append("\nItens Equipados: ").append(itemEquipado.isEmpty() ? "Nenhum\n" : "\n");
-        for (Item e : itemEquipado) {
-            sb.append("- ").append(e).append("\n");
-        }
-
-        sb.append("\nMochila: ").append(equipamentosExtras.isEmpty() ? "Nenhum\n" : "\n");
-        for (Item x : equipamentosExtras) {
-            sb.append("- ").append(x).append("\n");
-        }
-
-        return sb.toString();
     }
 
     public Personagem(String nome, int habilidade, int energia, int sorte, int tesouro, String classe) {

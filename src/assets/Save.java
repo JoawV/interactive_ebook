@@ -19,7 +19,7 @@ public class Save {
 
         try (FileWriter writer = new FileWriter("src\\assets\\saves\\" + personagem.getNome().replaceAll("[^a-zA-Z0-9\\-_]", "_") + ".json")) {
             writer.write(json);
-            System.out.println("Jogo salvo com sucesso!\n");
+            System.out.println("Jogo salvo automaticante com sucesso!\n");
         } catch (IOException e) {
             System.out.println("Erro ao salvar o jogo...");
             e.printStackTrace();

@@ -1,58 +1,64 @@
 {
-  "nome": "outroTESTE",
+  "nome": "João",
   "habilidade": 6,
-  "energia": 20,
+  "energia": 24,
   "sorte": 6,
-  "tesouro": 10,
-  "classe": "guerreiro",
-  "cena": 1,
+  "tesouro": 0,
+  "classe": "Guerreiro",
+  "cena": 3,
   "magiaEquipadas": [],
   "itemEquipado": [
     {
       "nome": "Armadura",
-      "tipo": "defesa",
+      "tipo": "Defesa",
       "combate": 1,
-      "fa": 1.0,
-      "bonus": 1.0
+      "fa": 2.0,
+      "bonus": 2.0
     },
     {
       "nome": "Espada",
       "tipo": "Ataque",
       "combate": 1,
-      "fa": 1.0,
-      "bonus": 3.0
+      "fa": 2.0,
+      "bonus": 4.0
     }
   ],
   "equipamentosExtras": [
     {
-      "nome": "pão",
+      "nome": "chave",
       "tipo": "c",
       "combate": 0,
       "fa": 0.0,
       "bonus": 0.0
     },
     {
-      "nome": "adaga",
-      "tipo": "w",
-      "combate": 1,
-      "fa": 1.0,
-      "bonus": 1.0
+      "nome": "diamante",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
+    },
+    {
+      "nome": "chave",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
+    },
+    {
+      "nome": "diamante",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
     }
   ],
-  "provisoes": [
-    {
-      "nome": "Provisão",
-      "tipo": "c",
-      "combate": 0,
-      "fa": 0.0,
-      "bonus": 0.0
-    },
-    {
-      "nome": "Provisão",
-      "tipo": "c",
-      "combate": 0,
-      "fa": 0.0,
-      "bonus": 0.0
-    }
+  "provisoes": [],
+  "cenas": [
+    1,
+    2,
+    4,
+    12,
+    3
   ]
 }
