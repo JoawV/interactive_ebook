@@ -20,8 +20,8 @@ public class TelaCombate {
         while (true) {
             //Monstrando os dados do monstro
             System.out.println("=== Combate ===");
-            System.out.printf("Monstro: " + monstro.getRaca() + "\n");
-            System.out.printf("Habilidade: " + monstro.getHabilidade() + " | Energia: " + monstro.getEnergia() + " | Sorte: " + monstro.getSorte() + "\n");
+            System.out.printf("Monstro: %s\n", monstro.getRaca());
+            System.out.printf("Habilidade: %d | Energia: %d | Sorte: %d\n",monstro.getHabilidade(), monstro.getEnergia(), monstro.getSorte());
             if (monstro.getItem() != null) {
                 System.out.println("Item carregado: " + monstro.getItem());
             }

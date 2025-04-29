@@ -5,7 +5,7 @@
   "sorte": 6,
   "tesouro": 0,
   "classe": "Guerreiro",
-  "cena": 2,
+  "cena": 3,
   "magiaEquipadas": [],
   "itemEquipado": [
     {
@@ -37,6 +37,20 @@
       "combate": 0,
       "fa": 0.0,
       "bonus": 0.0
+    },
+    {
+      "nome": "chave",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
+    },
+    {
+      "nome": "diamante",
+      "tipo": "c",
+      "combate": 0,
+      "fa": 0.0,
+      "bonus": 0.0
     }
   ],
   "provisoes": [],
@@ -44,6 +58,7 @@
     1,
     2,
     4,
-    12
+    12,
+    3
   ]
 }
